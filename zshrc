@@ -1,6 +1,5 @@
 # Path to your oh-my-zsh installation.
-#ZSH=/usr/share/oh-my-zsh/
-ZSH=~/.oh-my-zsh/
+ZSH=~/code/oh-my-zsh/
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -46,11 +45,13 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+export REPORTTIME=2
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
