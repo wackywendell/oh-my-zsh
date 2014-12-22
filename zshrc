@@ -53,7 +53,7 @@ source $ZSH/oh-my-zsh.sh
 
 export REPORTTIME=2
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/code/scripts:$HOME/work/bin
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:$HOME/code/scripts:$HOME/work/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
