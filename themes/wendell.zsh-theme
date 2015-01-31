@@ -3,9 +3,6 @@
 local user='%{$fg_bold[magenta]%}%n%{$reset_color%}'
 local pwd='%{$fg_bold[blue]%}%~%{$reset_color%}'
 
-local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
-local git_info='$(git_prompt_info)'
-
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[cyan]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}x"
@@ -18,5 +15,29 @@ ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}o"
 #ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
 #ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
 
+# The return code of the last statement
+local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
+# Prints branch name, a space, and then x or o for a dirty or clean repo
+local git_info='$(git_prompt_info)'
+
+# from holman/dotfiles/zsh/prompt.zsh
+# Prints a list of unpushed commits
+unpushed () {
+  git cherry -v @{upstream} 2>/dev/null
+}
+
+# from holman/dotfiles/zsh/prompt.zsh
+need_push () {
+  if [[ $(unpushed) == "" ]]; then
+    # we have no changes to push
+    echo " "
+  else
+    # Add a yellow ✚ if we have changes to push
+    echo "%{$fg_bold[yellow]%}✚%{$reset_color%}"
+  fi
+}
+
+local push_status='$(need_push)'
+
 PROMPT="${user} ${pwd}$ "
-RPROMPT="${return_code} ${git_info}"
+RPROMPT="${return_code} ${git_info}${push_status}"
