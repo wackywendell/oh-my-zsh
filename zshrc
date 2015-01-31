@@ -53,7 +53,26 @@ source $ZSH/oh-my-zsh.sh
 
 export REPORTTIME=2
 
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:$HOME/code/scripts:$HOME/work/bin
+pathappend () {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$1"
+    fi
+}
+
+pathprepend () {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="$1${PATH:+":$PATH"}"
+    fi
+}
+
+#pathprepend "/usr/local/bin"
+pathprepend "$HOME/.local/bin"
+pathprepend "$HOME/bin"
+
+pathappend "$HOME/code/scripts"
+pathappend "$HOME/work/bin"
+pathappend "$HOME/.gem/ruby/2.2.0/bin"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
