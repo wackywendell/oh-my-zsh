@@ -101,3 +101,7 @@ pathappend "$HOME/.gem/ruby/2.2.0/bin"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 . ~/.zshrc.local
+
+# For HOMESHICK
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
