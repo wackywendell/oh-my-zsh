@@ -23,12 +23,17 @@ local git_info='$(git_prompt_info)'
 # from holman/dotfiles/zsh/prompt.zsh
 # Prints a list of unpushed commits
 unpushed () {
-  git cherry -v @{upstream} 2>/dev/null
+  [ "0"$(git rev-list --left-only --count master...@{upstream} 2>/dev/null) -eq 0 ]
+  # two other ways of doing this:
+  #git cherry -v @{upstream} 2>/dev/null
+  #git status -sb  2>/dev/null | grep -q '##.*ahead.*' 2>/dev/null
+  
+  # those go with the test ``#if [[ $(unpushed) == "" ]]; then` in `need_push`
 }
 
 # from holman/dotfiles/zsh/prompt.zsh
 need_push () {
-  if [[ $(unpushed) == "" ]]; then
+  if unpushed; then
     # we have no changes to push
     echo " "
   else
