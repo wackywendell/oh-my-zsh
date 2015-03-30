@@ -47,6 +47,10 @@ DISABLE_AUTO_UPDATE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting)
 
+# For HOMESHICK
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -101,7 +105,3 @@ pathappend "$HOME/.gem/ruby/2.2.0/bin"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 . ~/.zshrc.local
-
-# For HOMESHICK
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
