@@ -76,6 +76,7 @@ pathprepend "$HOME/bin"
 pathappend "$HOME/code/scripts"
 pathappend "$HOME/work/bin"
 pathappend "$HOME/.gem/ruby/2.2.0/bin"
+pathappend "$HOME/npm/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -105,3 +106,5 @@ pathappend "$HOME/.gem/ruby/2.2.0/bin"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 . ~/.zshrc.local
+# added by travis gem
+[ -f /home/wendell/.travis/travis.sh ] && source /home/wendell/.travis/travis.sh
