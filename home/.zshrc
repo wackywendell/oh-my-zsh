@@ -106,5 +106,3 @@ pathappend "$HOME/npm/bin"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 . ~/.zshrc.local
-# added by travis gem
-[ -f /home/wendell/.travis/travis.sh ] && source /home/wendell/.travis/travis.sh
