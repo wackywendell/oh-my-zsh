@@ -75,7 +75,7 @@ pathprepend "$HOME/bin"
 
 pathappend "$HOME/code/scripts"
 pathappend "$HOME/work/bin"
-pathappend "$HOME/.gem/ruby/2.2.0/bin"
+pathappend "$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
 pathappend "$HOME/npm/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
