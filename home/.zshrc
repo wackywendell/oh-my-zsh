@@ -55,31 +55,11 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
-
 # User configuration
 
 export REPORTTIME=2
 
-pathappend () {
-    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
-        PATH="${PATH:+"$PATH:"}$1"
-    fi
-}
-
-pathprepend () {
-    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
-        PATH="$1${PATH:+":$PATH"}"
-    fi
-}
-
-#pathprepend "/usr/local/bin"
-pathprepend "$HOME/.local/bin"
-pathprepend "$HOME/bin"
-
-pathappend "$HOME/code/scripts"
-pathappend "$HOME/work/bin"
-pathappend "$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
-pathappend "$HOME/npm/bin"
+[ -f "$HOME/.profile" ] && source "$HOME/.profile"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
