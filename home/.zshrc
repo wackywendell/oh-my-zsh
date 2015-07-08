@@ -49,6 +49,8 @@ plugins=(git zsh-syntax-highlighting brew dirhistory pip python sudo systemd hub
 
 ZSH_TMUX_AUTOSTART=true
 
+source $HOME/.profile
+
 # For HOMESHICK
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
