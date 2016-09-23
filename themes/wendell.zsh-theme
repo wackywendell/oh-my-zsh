@@ -1,6 +1,9 @@
 # Based on alanpeabody
 
 local user='%{$fg_bold[magenta]%}%n%{$reset_color%}'
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    local user='%{$fg_bold[red]%}%n%{$reset_color%}'
+fi
 local pwd='%{$fg_bold[blue]%}%~%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[cyan]%}"
@@ -27,7 +30,7 @@ unpushed () {
   # two other ways of doing this:
   #git cherry -v @{upstream} 2>/dev/null
   #git status -sb  2>/dev/null | grep -q '##.*ahead.*' 2>/dev/null
-  
+
   # those go with the test ``#if [[ $(unpushed) == "" ]]; then` in `need_push`
 }
 

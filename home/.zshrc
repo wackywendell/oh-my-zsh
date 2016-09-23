@@ -47,7 +47,9 @@ DISABLE_AUTO_UPDATE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting brew dirhistory pip python sudo systemd hub tmux)
 
-ZSH_TMUX_AUTOSTART=true
+if [ ! -n "$SSH_CLIENT" ] && [ ! -n "$SSH_TTY" ]; then
+    ZSH_TMUX_AUTOSTART=true
+fi
 
 source $HOME/.profile
 
