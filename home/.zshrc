@@ -60,6 +60,7 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 source $ZSH/oh-my-zsh.sh
 
 zsh_syntax_source="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+[ ! -f $zsh_syntax_source ] && zsh_syntax_source=/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -z "$ZSH_HIGHLIGHT_VERSION" ] && [ -f "$zsh_syntax_source" ] && source $zsh_syntax_source
 
 # User configuration
@@ -95,4 +96,4 @@ export REPORTTIME=2
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-. ~/.zshrc.local
+source ~/.zshrc.local
